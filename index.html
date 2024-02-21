@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" id="html-theme">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="https://kit.fontawesome.com/29ee0bc57e.js" crossorigin="anonymous">
+    </script>
+    <title>Todo List</title>
+</head>
+
+<body class="dark">
+    <footer>
+        <div class="author-info">
+            Built using HTML, CSS, and JavaScript. Developed by myself. If you liked it, feel free to fork it from
+            my&nbsp;<a href="https://github.com/fa-te970" target="_blank"><a href="https://github.com/fa-te970"
+                    target="_blank">GitHub repository</a>.
+        </div>
+
+    </footer>
+    <div class="container">
+        <header>
+            <h1>
+                To Do List
+            </h1>
+            <div class="input-section">
+                <input type="text" id="todoInput" placeholder="Enter the task you want to do" />
+                <span class="addBtn btn" id="add_button">
+                    Add
+                </span>
+            </div>
+        </header>
+
+        <div class="tooltip">
+            <ul id="todoList">
+            </ul>
+
+            <span class="tooltiptext">Select the item to change status to Done</span>
+        </div>
+
+    </div>
+
+    <!-- Theme -->
+    <div class="theme-container">
+        <input type="checkbox" class="checkbox" id="themeChk" />
+        <label class="theme-label" for="themeChk">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <div class="ball"></div>
+        </label>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>

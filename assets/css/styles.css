@@ -1,0 +1,322 @@
+:root { 
+    /* Default theme is dark */
+    --white-color: #fff;
+    --black-color: #000;
+    --gray-color: #F3F3F3;
+    --gray-color-300: #D8D8D8;
+    --gray-color-500: #AEAEAE;
+    --gray-color-800: #3A3A3A;
+    --light-gray-color: #EDF1F3;
+    --footer-color: var(--white-color);
+    --fa-moon-color: #f1c40f;
+    --fa-sun-color: #f39c12;
+    --li-color: #eee;
+
+    --bg-color: rgba(0, 0, 0);
+    --text-color: var(--white-color);
+    --bg-color-container: rgba(255, 255, 255, 0.25);
+    
+    --failed-color: #A5243D;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --navbar-color-color: #131814;
+    --rounded-box: 1rem;
+    --rounded-btn: .5rem;
+    --border-btn: 1px;
+    --animation-btn: .25s;
+    --success-color: #a5eaa5;
+
+    --btn-bg-light: #e6e22c;
+    --btn-bg-dark: #4a5bcd;
+}
+
+/* Light theme */
+.light {
+  --bg-color: #e1e3e6;
+  --bg-color-container: rgba(187, 181, 181, 0.75);
+  --text-color: var(--black-color);
+  --btn-bg: #4a5bcd;
+  --footer-color: var(--gray-color-800);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.2s linear;
+}
+
+.checkbox {
+	opacity: 0;
+	position: absolute;
+}
+
+.theme-container {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    transform: scale(1.7);
+    -webkit-transform:scale(1.7);
+}
+
+.theme-label {
+	background-color: var(--gray-color-800);
+	border-radius: 50px;
+	cursor: pointer;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 50px;
+}
+
+.theme-label .ball {
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	height: 20px;
+	width: 20px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .theme-label .ball {
+	transform: translateX(20px);
+}
+
+
+.fa-moon {
+	color: var(--fa-moon-color);
+}
+
+.fa-sun {
+	color: var(--fa-sun-color);
+}
+
+
+.container {
+    min-width: 640px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 400px;
+    min-width: 640px;
+    max-width: 1024px;
+    background: var(--bg-color-container);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.3 );
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 20px;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+.container header {
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1 {
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+header .input-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.input-section input {
+    margin-right: 10px;
+    max-width: 100%;
+}
+
+.input-error {
+    border-color: red;
+    border-width: 3px;
+    color: red;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: var(--btn-bg-light);
+    color: var(--black-color);
+    border-color: var(--black-color);
+    text-align: center;
+    border-radius: var(--rounded-btn,.5rem);
+    height: 3rem;
+    min-height: 3rem;
+    border-width: var(--border-btn,1px);
+    animation: button-pop var(--animation-btn,.25s)ease-out;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 1em;
+    -webkit-text-decoration-line: none;
+    text-decoration-line: none;
+    transition-property: color,background-color,border-color,-webkit-text-decoration-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    display: inline-flex
+}
+
+ul {
+    width: 100%;
+    margin-bottom: 3rem;
+    color: var(--black-color);
+}
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    list-style-type: none;
+    background: var(--li-color);
+    font-size: 1.1rem;
+    transition: 0.2s;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ul li:nth-child(odd) {
+    background: #b2bec3;
+}
+
+ul li:hover {
+    background: #ddd;
+}
+
+ul li.checked {
+    background: var(--success-color);
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: "";
+    position: absolute;
+    border-color: var(--white-color);
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+input {
+    height: 3rem;
+    border-width: 1px;
+    width: 75%;
+    border-radius: var(--rounded-btn,.5rem);
+    flex-shrink: 1;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: .875rem;
+    line-height: 2;
+    transition-property: color,background-color,border-color,-webkit-text-decoration-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter,backdrop-filter,-webkit-text-decoration-color,-webkit-backdrop-filter;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1)
+}
+
+.addBtn:hover {
+    background-color: var(--gray-color-500);
+    color: var(--white-color);
+}
+
+.far {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.far:hover {
+    background-color: var(--failed-color);
+    color: var(--white-color);
+}
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    width: 100%;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: var(--gray-color);
+    color: var(--black-color);
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip on top section of the list */
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    padding: 0.5rem;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    /* Add animation */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.author-info {
+    color: var(--footer-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
