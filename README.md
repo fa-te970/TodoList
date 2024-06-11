@@ -35,7 +35,7 @@ To get started with the project, clone the repository.
 git git@github.com:Lynelluo/sentiment_snap.git
 ```  
 
-
+##
 **install the necessary dependencies**
 
 To add the necessary node modules after cloning the project and before running it, follow these steps:
