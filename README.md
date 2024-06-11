@@ -1,4 +1,4 @@
-# SentimentSnap
+# SentimentSnap (Frontend)
 
 This project, the front-end service, is part of the FDU Summer-2024 Capstone. It provides users with access to educational articles related to mental health and offers a real-time emotion analysis tool, based on Deep learning techniques, for uploaded images. 
 
@@ -29,13 +29,33 @@ This frontend of the web application is built with React, HTML, CSS, and Bootstr
 
 ## Installation
 
-To get started with the project, clone the repository and install the necessary dependencies.
+To get started with the project, clone the repository.
 
 ```bash
 git git@github.com:Lynelluo/sentiment_snap.git
+```
+
+**install the necessary dependencies**
+
+To add the necessary node modules after cloning the project and before running it, follow these steps:
+
+- Open a terminal window.
+
+- Navigate to the root directory of your project.
+
+```bash
 cd sentiment_snap/frontend
+```
+
+- Run the following command to install the node modules listed in your package.json file:
+
+```bash
 npm install
 ```
+
+This command will download and install all the dependencies required for your project to run.
+
+Once the installation is complete, you can proceed to run your project using the appropriate command.
 
 ## Running the Application
 
