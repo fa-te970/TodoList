@@ -33,7 +33,7 @@ To get started with the project, clone the repository.
 
 ```bash
 git git@github.com:Lynelluo/sentiment_snap.git
-```
+```  
 
 
 **install the necessary dependencies**
@@ -56,7 +56,7 @@ npm install
 
 This command will download and install all the dependencies required for your project to run.
 
-Once the installation is complete, you can proceed to run your project using the appropriate command.
+Once the installation is complete, you can proceed to run your project using the appropriate command.  
 
 
 ## Running the Application
