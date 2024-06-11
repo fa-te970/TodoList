@@ -50,20 +50,19 @@ This will start the app on http://localhost:3000/.
 
 **Accessing Educational Articles**
 - Navigate to the "Articles" section of the website.
-- Browse or search for articles on mental health topics of interest.
-- Click on an article to view its content.
+- Browse for articles on mental health topics of interest.
 
 **Uploading Images for Emotion Analysis**
 - Go to the "Emotion Analysis" section of the website.
 - Click on the "Upload Image" button.
 - Select an image file from your device.
 - Wait for the analysis to complete.
-- View the detected emotions displayed on the screen.
+- View the detected emotion results displayed on the screen.
 
 **User Authentication and Profiles**
 - To create an account, click on the "Sign Up" button and fill in the required information.
 - To log in, click on the "Login" button and enter your credentials.
-- Once logged in, you can access personalized features such as saving favorite articles or viewing past emotion analysis results.
+- Once logged in, you can access personalized features such as viewing past emotion analysis results.
 
 ## Contributing
 
