@@ -69,6 +69,6 @@ This will start the app on http://localhost:3000/.
 |                                   |                             |         |
 |-----------------------------------|-----------------------------|---------|
 | f.telgerdi@student.fdu.edu        | fa.te970970970@gmail.com    | 1995317 |
+| x.luo@student.fdu.edu             | xugengluo@gmail.com         | 2051920 |
 | h.zhang2@student.fdu.edu          | marszhhx@gmail.com          | 2073763 |
 | M.mehdizadehmolla@student.fdu.edu | Mina.mehdizadeh26@gmail.com | 2095285 |
-| x.luo@student.fdu.edu             | xugengluo@gmail.com         | 2051920 |
