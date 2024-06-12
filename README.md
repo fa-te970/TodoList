@@ -1,96 +1,247 @@
-# SentimentSnap (Frontend)
+### API Documentation
 
-This project, the front-end service, is part of the FDU Summer-2024 Capstone. It provides users with access to educational articles related to mental health and offers a real-time emotion analysis tool, based on Deep learning techniques, for uploaded images. 
+#### Authentication Routes
 
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Technologies](#technologies)
-- [Installation](#installation)
-- [Running the Application](#running-the-application)
-- [Usage](#usage)
-- [Contributing](#contributing)
-
-
-## Introduction
-
-This frontend of the web application is built with React, HTML, CSS, and Bootstrap. It provides users with access to educational articles related to mental health. Users can also upload images for real-time emotion analysis using deep learning models. The interface is designed to be user-friendly and responsive for easy navigation and interaction.
-
-
-## Technologies
-
-- React
-- React Router DOM
-- Axios
-- Bootstrap
-- React Icons
-
-
-## Installation
-
-To get started with the project, clone the repository.
-
-```bash
-git git@github.com:Lynelluo/sentiment_snap.git
-```  
-
-##
-**install the necessary dependencies**
-
-To add the necessary node modules after cloning the project and before running it, follow these steps:
-
-- Open a terminal window.
-
-- Navigate to the root directory of your project.
-
-```bash
-cd sentiment_snap/frontend
+**Register a new user**
+```
+POST /api/auth/register
+```
+- **Request Body:**
+```json
+{
+  "username": "string",
+  "email": "string",
+  "password": "string"
+}
+```
+- **Response:**
+```json
+{
+  "message": "User registered successfully"
+}
 ```
 
-- Run the following command to install the node modules listed in your package.json file:
-
-```bash
-npm install
+**Login a user**
+```
+POST /api/auth/login
+```
+- **Request Body:**
+```json
+{
+  "email": "string",
+  "password": "string"
+}
+```
+- **Response:**
+```json
+{
+  "token": "string",
+  "userId": "string",
+  "username": "string"
+}
 ```
 
-This command will download and install all the dependencies required for your project to run.
+#### Image Routes
 
-Once the installation is complete, you can proceed to run your project using the appropriate command.  
-
-
-## Running the Application
-
-To start the development server, run:
-
-```bash
-npm start
-This will start the app on http://localhost:3000/.
+**Upload an image**
+```
+POST /api/images/upload
+```
+- **Headers:**
+    - Authorization: Bearer {token}
+- **Form Data:**
+    - file: image file
+- **Response:**
+```json
+{
+  "message": "Image uploaded and processed",
+  "image": {
+    "filename": "string",
+    "metadata": {
+      "size": "number",
+      "mimetype": "string"
+    },
+    "data": "Buffer",
+    "emotions": [
+      {
+        "emotion": "string",
+        "confidence": "number",
+        "timestamp": "date"
+      }
+    ],
+    "processed": "boolean",
+    "user": "string"
+  }
+}
 ```
 
-## Usage
+**Get all images for the authenticated user**
+```
+GET /api/images
+```
+- **Headers:**
+    - Authorization: Bearer {token}
+- **Response:**
+```json
+[
+  {
+    "_id": "string",
+    "filename": "string",
+    "metadata": {
+      "size": "number",
+      "mimetype": "string"
+    },
+    "data": "Buffer",
+    "emotions": [
+      {
+        "emotion": "string",
+        "confidence": "number",
+        "timestamp": "date"
+      }
+    ],
+    "processed": "boolean",
+    "user": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  }
+]
+```
 
-**Accessing Educational Articles**
-- Navigate to the "Articles" section of the website.
-- Browse for articles on mental health topics of interest.
+**Get a single image by ID**
+```
+GET /api/images/:id
+```
+- **Headers:**
+    - Authorization: Bearer {token}
+- **Response:**
+    - Content-Type: image mime type
+    - Image data in response body
 
-**Uploading Images for Emotion Analysis**
-- Go to the "Emotion Analysis" section of the website.
-- Click on the "Upload Image" button.
-- Select an image file from your device.
-- Wait for the analysis to complete.
-- View the detected emotion results displayed on the screen.
+#### User Routes
 
-**User Authentication and Profiles**
-- To create an account, click on the "Sign Up" button and fill in the required information.
-- To log in, click on the "Login" button and enter your credentials.
-- Once logged in, you can access personalized features such as viewing past emotion analysis results.
+**Get current user info**
+```
+GET /api/users/me
+```
+- **Headers:**
+    - Authorization: Bearer {token}
+- **Response:**
+```json
+{
+  "_id": "string",
+  "username": "string",
+  "email": "string",
+  "createdAt": "date",
+  "updatedAt": "date"
+}
+```
 
-## Contributing
+**Update user info**
+```
+PUT /api/users/:id
+```
+- **Headers:**
+    - Authorization: Bearer {token}
+- **Request Body:**
+```json
+{
+  "username": "string",
+  "email": "string"
+}
+```
+- **Response:**
+```json
+{
+  "message": "User updated successfully",
+  "updatedUser": {
+    "_id": "string",
+    "username": "string",
+    "email": "string",
+    "createdAt": "date",
+    "updatedAt": "date"
+  }
+}
+```
 
-|                                   |                             |         |
-|-----------------------------------|-----------------------------|---------|
-| f.telgerdi@student.fdu.edu        | fa.te970970970@gmail.com    | 1995317 |
-| x.luo@student.fdu.edu             | xugengluo@gmail.com         | 2051920 |
-| h.zhang2@student.fdu.edu          | marszhhx@gmail.com          | 2073763 |
-| M.mehdizadehmolla@student.fdu.edu | Mina.mehdizadeh26@gmail.com | 2095285 |
+**Delete user**
+```
+DELETE /api/users/:id
+```
+- **Headers:**
+    - Authorization: Bearer {token}
+- **Response:**
+```json
+{
+  "message": "User deleted successfully"
+}
+```
+
+### Mock Data
+
+#### Users
+```json
+[
+  {
+    "_id": "60d5ec49b4dcb00022c2581a",
+    "username": "user1",
+    "email": "user1@example.com",
+    "password": "$2a$12$KIX.MtPjK3ihQ2Fv0VV1a.4Gvs4ZVz6Y7OaxWc2v1YIKykBcVbRo6", // hashed password for 'password123'
+    "createdAt": "2023-06-15T12:34:56Z",
+    "updatedAt": "2023-06-15T12:34:56Z"
+  },
+  {
+    "_id": "60d5ec49b4dcb00022c2581b",
+    "username": "user2",
+    "email": "user2@example.com",
+    "password": "$2a$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36N9Cwr8.Q1Fb6nIvYLGbSW", // hashed password for 'password456'
+    "createdAt": "2023-06-15T12:34:56Z",
+    "updatedAt": "2023-06-15T12:34:56Z"
+  }
+]
+```
+
+#### Images
+```json
+[
+  {
+    "_id": "60d5ec49b4dcb00022c2581c",
+    "filename": "image1.jpg",
+    "metadata": {
+      "size": 12345,
+      "mimetype": "image/jpeg"
+    },
+    "data": "<binary data>",
+    "emotions": [
+      {
+        "emotion": "happy",
+        "confidence": 0.9,
+        "timestamp": "2023-06-15T12:34:56Z"
+      }
+    ],
+    "processed": true,
+    "user": "60d5ec49b4dcb00022c2581a",
+    "createdAt": "2023-06-15T12:34:56Z",
+    "updatedAt": "2023-06-15T12:34:56Z"
+  },
+  {
+    "_id": "60d5ec49b4dcb00022c2581d",
+    "filename": "image2.png",
+    "metadata": {
+      "size": 23456,
+      "mimetype": "image/png"
+    },
+    "data": "<binary data>",
+    "emotions": [
+      {
+        "emotion": "sad",
+        "confidence": 0.85,
+        "timestamp": "2023-06-15T12:34:56Z"
+      }
+    ],
+    "processed": true,
+    "user": "60d5ec49b4dcb00022c2581b",
+    "createdAt": "2023-06-15T12:34:56Z",
+    "updatedAt": "2023-06-15T12:34:56Z"
+  }
+]
+```
